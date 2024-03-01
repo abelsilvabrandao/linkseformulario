@@ -6,13 +6,12 @@
 
 :root {
   --text-color: white;
-  --bg-url:url(./assets/bg-mobile.jpg);
+  --bg-url: url(./assets/bg-mobile.jpg);
   --stroke-color: rgba(255, 255, 255, 0.5);
   --surface-color: rgba(255, 255, 255, 0.05);
   --surface-color-hover: rgba(0, 0, 0, 0.02);
   --highlight-color: rgba(255, 255, 255, 0.2);
   --switch-bg-url: url(./assets/moon-stars.svg);
-
 }
 
 .light {
@@ -25,11 +24,11 @@
   --switch-bg-url: url(./assets/sun.svg);
 }
 
-body{
+body {
   background: var(--bg-url) no-repeat top center/cover;
 }
-body *{
-  font-family: 'Inter', sans-serif;
+body * {
+  font-family: "Inter", sans-serif;
   color: var(--text-color);
 }
 #container {
@@ -45,8 +44,9 @@ body *{
 }
 
 #profile img {
-  width: 112px;
+  width: 200px;
 }
+
 #profile p {
   font-weight: 500;
   line-height: 24px;
@@ -59,7 +59,7 @@ body *{
 
   margin: 4px auto;
 }
-#switch button{
+#switch button {
   width: 32px;
   height: 32px;
   background: white var(--switch-bg-url) no-repeat center;
@@ -73,7 +73,7 @@ body *{
   transform: translateY(-50%);
 }
 
-.light #switch button{
+.light #switch button {
   right: 0;
   left: initial;
 }
@@ -89,7 +89,6 @@ body *{
   border-radius: 9999px;
 }
 
-
 /*links */
 ul {
   list-style: none;
@@ -102,21 +101,21 @@ ul {
 }
 
 ul li a {
-display: flex;
-align-items: center;
-justify-content: center;
-padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
 
-background: var(--surface-color);
-border: 1px solid var(--stroke-color);
-border-radius: 8px;
+  background: var(--surface-color);
+  border: 1px solid var(--stroke-color);
+  border-radius: 8px;
 
-backdrop-filter: blur(4px);
--webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
 
-text-decoration: none;
-font-weight: 500;
-transition: background 0.2s;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.2s;
 }
 
 /*pseudo-selector */
@@ -128,8 +127,8 @@ ul li a:hover {
 #social-links {
   display: flex;
   justify-content: center;
- 
-  padding:24px 0;
+
+  padding: 24px 0;
 
   font-size: 24px;
 }
@@ -141,15 +140,82 @@ ul li a:hover {
   padding: 16px;
 
   transition: background 0.2s;
-   border-radius: 50%;
+  border-radius: 50%;
 }
 
-#social-links a:hover{
+#social-links a:hover {
   background: var(--highlight-color);
 }
 
+/*Logomarca + Corporing*/
+#logo-marca {
+  text-align: center;
+  padding: 8px;
+}
+
+#logo-marca img {
+  width: 150px;
+}
+
+#logo-marca p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+/*Whatsapp*/
+
+#whats-app {
+  text-align: center;
+  padding: 8px;
+}
+
+#logo-marca img {
+  width: 150px;
+}
+
+#logo-marca p {
+  font-weight: 500;
+  line-height: 24px;
+  margin-top: 8px;
+}
+
+/* Estilo para o formulário */
+#contact-form {
+  margin-top: 10px;
+}
+
+#contact-form label {
+  margin-bottom: 10px;
+  font-weight: 50;
+}
+
+#contact-form input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 8px solid var(--stroke-color);
+  border-radius: 6px;
+}
+
+#contact-form button {
+  width: 100%;
+  padding: 12px;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#contact-form button:hover {
+  background-color: var(--surface-color);
+}
+
+/* Fim do estilo para o formulário */
+
 footer {
-padding: 24px 0;
-text-align: center;
-font-size: 14px;
+  padding: 24px 0;
+  text-align: center;
+  font-size: 14px;
 }
