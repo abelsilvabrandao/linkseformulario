@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br" class="">
+<html lang="pt-br">
 <head>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -7,45 +7,37 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Formulário de Contato</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Formulário para Contato</title>
+  <link rel="stylesheet" href="style2.css">
 </head>
 <body>
   <div id="container">
     <div id="profile">
-      <img src="./assets/avatar.png" alt="Foto do usuario" />
+      <img src="./assets/logo MEMEU ouro.png" alt="Foto do usuário" />
       <p>@memeuramos_</p>
     </div>
     <div id="switch" onclick="toggleMode()">
       <button></button>
       <span></span>
     </div>
-    <h1>Formulário de Contato</h1>
     <form id="contact-form">
+      <h1>Formulário de Contato</h1>
       <label for="eventName">Nome do Evento:</label>
       <input type="text" id="eventName" name="eventName" required>
       
       <label for="eventAddress">Endereço do Evento:</label>
       <input type="text" id="eventAddress" name="eventAddress" required>
-      
-      <label for="eventType">Local:</label>
-      <input type="radio" id="open" name="eventType" value="open" required>
-      <label for="open">Aberto</label>
-      <input type="radio" id="closed" name="eventType" value="closed">
-      <label for="closed">Fechado</label>
-      
-      <label for="eventSound">Evento com Equipamento de som:</label>
-      <input type="radio" id="soundYes" name="eventSound" value="yes" required>
-      <label for="soundYes">Sim</label>
-      <label for="soundNo">Não</label>
-      <input type="radio" id="soundNo" name="eventSound" value="no">
-      <label for="contactPhone">Telefone de Contato:</label>
+
+      <label for="contactPhone">Telefone para contato:</label>
       <input type="tel" id="contactPhone" name="contactPhone" required>
-      
+
       <label for="contactEmail">E-mail:</label>
       <input type="email" id="contactEmail" name="contactEmail" required>
-      
-      <button type="submit">Enviar</button>
+
+      <label for="eventDescription">Texto (máximo de 2000 caracteres):</label>
+      <textarea id="eventDescription" name="eventDescription" rows="4" maxlength="2000" required></textarea>
+
+      <button onclick="enviarFormulario()" type="submit">Enviar</button>
     </form>
   </div>
   <footer>
@@ -53,24 +45,7 @@
     <a href="https://www.instagram.com/abelsilvabrandao/" target="_blank">
       Abel Silva Brandão</a>
   </footer>
-  <script
-    type="module"
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
-  ></script>
-  <script
-    nomodule
-    src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-  ></script>
   <script src="./script.js"></script>
-  <script>
-    // Obter o elemento <span> pelo ID
-    var spanAno = document.getElementById('ano-atual');
-
-    // Obter o ano atual
-    var anoAtual = new Date().getFullYear();
-
-    // Atualizar o conteúdo do <span> com o ano atual
-    spanAno.textContent = anoAtual;
-  </script>
 </body>
 </html>
+

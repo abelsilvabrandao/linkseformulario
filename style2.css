@@ -33,7 +33,7 @@ body * {
 }
 #container {
   width: 360px;
-  margin: 10px auto 0px;
+  margin: 56px auto 0px;
   padding: 0 24px;
 }
 
@@ -44,14 +44,13 @@ body * {
 }
 
 #profile img {
-  margin-top: 8px;
-  width: 150px;
+  width: 200px;
 }
 
 #profile p {
   font-weight: 500;
   line-height: 24px;
-  margin-top: 12px;
+  margin-top: 8px;
 }
 /* switch */
 #switch {
@@ -90,83 +89,78 @@ body * {
   border-radius: 9999px;
 }
 
-/*social links*/
-#social-links {
-  display: flex;
-  justify-content: center;
-  align-items: flex-start; /* Alinha os itens ao topo */
-  padding: 24px 0;
-  margin-bottom: 8px; /* Alterado para margin-bottom */
-  font-size: 24px;
-}
+/* Estilo para o formulário */
 
-#social-links a {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px;
-  margin-top: 4px;
-  transition: background 0.2s;
-  border-radius: 50%;
-}
-
-#social-links a:hover {
-  background: var(--highlight-color);
-}
-
-/*links */
-ul {
+#contact-form {
   margin-top: 8px;
-  margin-bottom: 8px; /* Adicionado para criar uma distância entre a lista de links e os links sociais */
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-  padding: 24px 0;
 }
 
-ul li a {
+#contact-form label {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: 300; /* Ajusta a espessura da fonte dos labels */
+}
+
+#contact-form input[type="text"],
+#contact-form input[type="tel"],
+#contact-form input[type="email"] {
+  font-weight: bold;
+  font-size: 1em; /* Ajuste o valor conforme necessário */
   margin-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 16px 24px;
-  background: var(--surface-color);
-  border: 1px solid var(--stroke-color);
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 3px solid var(--stroke-color);
   border-radius: 8px;
-
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
-
-  text-decoration: none;
-  font-weight: 500;
-  transition: background 0.2s;
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
 }
 
-/*pseudo-selector */
-ul li a:hover {
-  background: var(--surface-color-hover);
-  border: 1.5px solid var(--text-color);
-}
-
-/*Logomarca + Corporing*/
-#logo-marca {
-  margin-top: 8px;
+#contact-form h1 {
   text-align: center;
-  padding: 8px;
+  font-size: 20px; /* Diminui o tamanho do título do formulário */
+  margin-top: 25px;
+  margin-bottom: 30px; /* Adiciona espaço abaixo do título */
 }
 
-#logo-marca img {
+#contact-form textarea {
+  font-weight: bold;
+  font-size: 1em; /* Ajuste o valor conforme necessário */
   margin-top: 8px;
-  width: 150px;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 16px;
+  border: 3px solid var(--stroke-color);
+  border-radius: 8px;
+  box-sizing: border-box; /* Garante que o padding não afete a largura total */
+  resize: vertical;
 }
 
-#logo-marca p {
-  font-weight: 500;
-  line-height: 24px;
-  margin-top: 8px;
+#contact-form button {
+  margin: 0 auto; /* Centraliza horizontalmente */
+  margin-top: 16px; /* Adiciona uma margem superior ao botão */
+  padding: 10px;
+  background-color: var(--highlight-color);
+  color: var(--text-color);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
+/* Adiciona um pouco de espaço abaixo do botão */
+#contact-form button {
+  margin-bottom: 5px;
+}
+
+#contact-form button:hover {
+  background-color: var(--surface-color);
+}
+/* Cor do texto digitado no imput */
+input,
+textarea {
+  color: black;
+  
+}
 /* Fim do estilo para o formulário */
 
 footer {
