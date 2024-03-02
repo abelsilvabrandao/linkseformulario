@@ -95,7 +95,7 @@ body * {
   display: flex;
   justify-content: center;
   align-items: flex-start; /* Alinha os itens ao topo */
-  padding: 24px 0;
+  padding-top: 8px;
   margin-bottom: 8px; /* Alterado para margin-bottom */
   font-size: 24px;
 }
@@ -126,7 +126,6 @@ ul {
 }
 
 ul li a {
-  margin-top: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -151,7 +150,6 @@ ul li a:hover {
 
 /*Logomarca + Corporing*/
 #logo-marca {
-  margin-top: 8px;
   text-align: center;
   padding: 8px;
 }
@@ -162,8 +160,9 @@ ul li a:hover {
 }
 
 #logo-marca p {
-  font-weight: 500;
-  line-height: 24px;
+  font-size: small;
+  font-weight: 8px;
+  line-height: 16px;
   margin-top: 8px;
 }
 
@@ -172,5 +171,6 @@ ul li a:hover {
 footer {
   padding: 24px 0;
   text-align: center;
+  text-decoration: none;
   font-size: 14px;
 }
