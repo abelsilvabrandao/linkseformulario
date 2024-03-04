@@ -123,9 +123,7 @@ function enviarFormulario() {
           document.getElementById("eventDescription").value = ""
         } else {
           // Se a resposta não estiver OK, exibe um alerta de erro
-          alert(
-            "Ocorreu um erro ao enviar o formulário. Página em manutenção."
-          )
+          alert("Ocorreu um erro ao enviar o formulário. Página em manutenção.")
         }
       })
       .catch(function (error) {
@@ -137,5 +135,3 @@ function enviarFormulario() {
     alert("Por favor, preencha todos os campos do formulário antes de enviar.")
   }
 }
-
-
