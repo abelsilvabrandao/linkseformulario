@@ -162,6 +162,17 @@ textarea {
   
 }
 /* Fim do estilo para o formulário */
+/*pagina em manutenção*/
+#statussite {
+  text-align: center;
+  padding: 24px;
+}
+
+#statussite img {
+  width: 200px;
+}
+
+
 
 footer {
   padding: 24px 0;

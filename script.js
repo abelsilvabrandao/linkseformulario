@@ -1,6 +1,16 @@
 function toggleMode() {
   const html = document.documentElement
   html.classList.toggle("light")
+  // pegar a tag img//
+  const img = document.querySelector("#profile img")
+  // substituir a imagem//
+  if (html.classList.contains("light")) {
+    //se tiver light mod adicionar a imagem ligth
+    img.setAttribute("src", "./assets/avatar-memeu-light.png")
+    //se tiver sem light mod mantem a imagem
+  } else {
+    img.setAttribute("src", "./assets/avatar-memeu.png")
+  }
 }
 
 function openForm() {
@@ -52,7 +62,7 @@ spanAno.textContent = anoAtual
 const textarea = document.getElementById("eventDescription")
 
 // Adicione um ouvinte de evento de entrada ao textarea
-textarea.addEventListener("eventDescription", function (event) {
+textarea.addEventListener("input", function (event) {
   const maxLength = 2000 // Limite máximo de caracteres
   const currentLength = event.target.value.length // Comprimento atual do texto
 
@@ -66,39 +76,6 @@ textarea.addEventListener("eventDescription", function (event) {
     )
   }
 })
-
-// Função para enviar o formulário
-function enviarFormulario() {
-  // Verifica se todos os campos do formulário estão preenchidos
-  var nomeEvento = document.getElementById("eventName").value
-  var enderecoEvento = document.getElementById("eventAddress").value
-  var telefoneContato = document.getElementById("contactPhone").value
-  var emailContato = document.getElementById("contactEmail").value
-  var descricaoEvento = document.getElementById("eventDescription").value
-
-  if (
-    nomeEvento &&
-    enderecoEvento &&
-    telefoneContato &&
-    emailContato &&
-    descricaoEvento
-  ) {
-    // Exibe o alerta de agradecimento
-    alert(
-      "Agradecemos o seu contato! Retornaremos o contato o mais breve possível. Memeu Ramos"
-    )
-
-    // Limpa todos os campos do formulário após o envio
-    document.getElementById("eventName").value = ""
-    document.getElementById("eventAddress").value = ""
-    document.getElementById("contactPhone").value = ""
-    document.getElementById("contactEmail").value = ""
-    document.getElementById("eventDescription").value = ""
-  } else {
-    // Caso algum campo esteja vazio, exibe um alerta solicitando que o usuário preencha todos os campos
-    alert("Por favor, preencha todos os campos do formulário antes de enviar.")
-  }
-}
 
 // Função para enviar o formulário
 function enviarFormulario() {
@@ -130,7 +107,7 @@ function enviarFormulario() {
         eventDescription: descricaoEvento,
       }),
     })
-      .then(function(response) {
+      .then(function (response) {
         // Verifica se a resposta da requisição está OK
         if (response.ok) {
           // Exibe o alerta de sucesso
@@ -146,15 +123,19 @@ function enviarFormulario() {
           document.getElementById("eventDescription").value = ""
         } else {
           // Se a resposta não estiver OK, exibe um alerta de erro
-          alert("Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.")
+          alert(
+            "Ocorreu um erro ao enviar o formulário. Página em manutenção."
+          )
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         // Se houver um erro de conexão, exibe um alerta de erro
-        alert("Ocorreu um erro ao enviar o formulário. Por favor, tente novamente.")
+        alert("Página em manutenção... Solicite o orçamento via Whatsapp.")
       })
   } else {
     // Caso algum campo esteja vazio, exibe um alerta solicitando que o usuário preencha todos os campos
     alert("Por favor, preencha todos os campos do formulário antes de enviar.")
   }
 }
+
+
