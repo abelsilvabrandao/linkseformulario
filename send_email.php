@@ -23,6 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Envia o e-mail
     $enviado = mail($destinatario, $assunto, $mensagem);
+    //
 
     // Verifica se o e-mail foi enviado com sucesso
     if ($enviado) {
