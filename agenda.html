@@ -17,15 +17,22 @@
     <div id="container">
       <div id="profile">
         <img src="./assets/logo MEMEU ouro.png" alt="Foto do usuário" />
-        <p>@memeuramos_</p>
+        <p>AGENDA</p>
       </div>
       <div id="statussite">
         <img
+          id="flyerImage"
           src="./assets/pagina-em-manutencao.png"
-          alt="página em manutençao... aguarde"/>
+          alt="Flyer do evento"
+        />
+        <h2 id="eventTitle" style="display: none">Título do Evento</h2>
+        <!-- Inicialmente escondido -->
       </div>
-  <div id="social-links">
-        <a href="https://wa.me/5571992170673/?text=Oi, tudo bem? Estou entrando em contato para solicitar cotação.%0A%0A*Segue dados*%0A%0AContato para evento%0AEndereço do Evento:%0ALocal do evento possui equipamento de som: (   ) Sim  (  ) Não" target="_blank">
+      <div id="social-links">
+        <a
+          href="https://wa.me/5571996377281/?text=Oi, tudo bem? Estou entrando em contato para solicitar cotação.%0A%0A*Segue dados*%0A%0AContato para evento%0AEndereço do Evento:%0ALocal do evento possui equipamento de som: Sim ou Não"
+          target="_blank"
+        >
           <ion-icon name="logo-whatsapp"></ion-icon>
         </a>
         <a href="https://www.instagram.com/memeuramos_/" target="_blank">
@@ -39,17 +46,70 @@
         </a>
       </div>
     </div>
-     </div>
-    <footer>
-    </footer>
-<script
+    <footer></footer>
+
+    <!-- Scripts do Firebase Modular -->
+    <script type="module">
+      import { initializeApp } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-app.js"
+      import {
+        getFirestore,
+        doc,
+        onSnapshot,
+      } from "https://www.gstatic.com/firebasejs/9.1.2/firebase-firestore.js"
+
+      const firebaseConfig = {
+        apiKey: "AIzaSyDHnxCru35-twaaFei7ftO5Ta6PuQ2bNfs",
+        authDomain: "agendamemeu.firebaseapp.com",
+        projectId: "agendamemeu",
+        storageBucket: "agendamemeu.firebasestorage.app",
+        messagingSenderId: "489621237870",
+        appId: "1:489621237870:web:cf5ad3a99b6099d729367f",
+        measurementId: "G-S34Z2V3S3C",
+      }
+
+      // Inicializar Firebase
+      const app = initializeApp(firebaseConfig)
+      const db = getFirestore(app)
+
+      // Recupera a URL da imagem e o título do evento
+      const flyerImage = document.getElementById("flyerImage")
+      const eventTitle = document.getElementById("eventTitle")
+
+      // Função para carregar a imagem e o título do Firestore
+      function loadEventDetails() {
+        const docRef = doc(db, "eventos", "evento_1") // Use o ID do documento correto
+
+        // Listener em tempo real para o documento
+        onSnapshot(docRef, (docSnap) => {
+          if (docSnap.exists()) {
+            const data = docSnap.data()
+            if (data.flyerUrl) {
+              flyerImage.src = "data:image/png;base64," + data.flyerUrl
+              eventTitle.textContent = data.title // Exibe o título do evento
+              eventTitle.style.display = " block" // Exibe o título
+            } else {
+              console.error("Flyer URL não encontrado.")
+              flyerImage.src = "./assets/pagina-em-manutencao.png" // Exibe imagem de manutenção
+              eventTitle.style.display = "none" // Esconde o título
+            }
+          } else {
+            flyerImage.src = "./assets/pagina-em-manutencao.png" // Exibe imagem de manutenção
+            eventTitle.style.display = "none" // Esconde o título
+          }
+        })
+      }
+
+      // Carregar a imagem e título quando a página for carregada
+      loadEventDetails()
+    </script>
+
+    <script
       type="module"
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
     ></script>
     <script
       nomodule
       src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"
-    ></script>    
-    <script src="./script.js"></script>
+    ></script>
   </body>
 </html>

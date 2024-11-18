@@ -95,3 +95,10 @@ body * {
 #social-links a:hover {
   background: var(--highlight-color);
 }
+
+footer {
+  padding: 24px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 14px;
+}

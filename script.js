@@ -77,61 +77,27 @@ textarea.addEventListener("input", function (event) {
   }
 })
 
-// Função para enviar o formulário
-function enviarFormulario() {
-  // Verifica se todos os campos do formulário estão preenchidos
+function enviarViaWhatsapp() {
+  // Obtém os valores dos campos do formulário
   var nomeEvento = document.getElementById("eventName").value
   var enderecoEvento = document.getElementById("eventAddress").value
   var telefoneContato = document.getElementById("contactPhone").value
   var emailContato = document.getElementById("contactEmail").value
   var descricaoEvento = document.getElementById("eventDescription").value
 
-  if (
-    nomeEvento &&
-    enderecoEvento &&
-    telefoneContato &&
-    emailContato &&
-    descricaoEvento
-  ) {
-    // Envia os dados do formulário para o arquivo PHP
-    fetch("send_email.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        eventName: nomeEvento,
-        eventAddress: enderecoEvento,
-        contactPhone: telefoneContato,
-        contactEmail: emailContato,
-        eventDescription: descricaoEvento,
-      }),
-    })
-      .then(function (response) {
-        // Verifica se a resposta da requisição está OK
-        if (response.ok) {
-          // Exibe o alerta de sucesso
-          alert(
-            "Agradecemos o seu contato! Retornaremos o contato o mais breve possível. Memeu Ramos"
-          )
+  // Formata a mensagem para o WhatsApp
+  var mensagem = `Nome do Evento: ${nomeEvento}%0AEndereço do Evento: ${enderecoEvento}%0ATelefone para Contato: ${telefoneContato}%0AE-mail de Contato: ${emailContato}%0ADescrição do Evento: ${descricaoEvento}`
 
-          // Limpa todos os campos do formulário após o envio
-          document.getElementById("eventName").value = ""
-          document.getElementById("eventAddress").value = ""
-          document.getElementById("contactPhone").value = ""
-          document.getElementById("contactEmail").value = ""
-          document.getElementById("eventDescription").value = ""
-        } else {
-          // Se a resposta não estiver OK, exibe um alerta de erro
-          alert("Ocorreu um erro ao enviar o formulário. Página em manutenção.")
-        }
-      })
-      .catch(function (error) {
-        // Se houver um erro de conexão, exibe um alerta de erro
-        alert("Página em manutenção... Solicite o orçamento via Whatsapp.")
-      })
-  } else {
-    // Caso algum campo esteja vazio, exibe um alerta solicitando que o usuário preencha todos os campos
-    alert("Por favor, preencha todos os campos do formulário antes de enviar.")
-  }
+  // URL do WhatsApp
+  var urlWhatsApp = `https://wa.me/5571996377281?text=${mensagem}`
+
+  // Redireciona para o WhatsApp
+  window.open(urlWhatsApp, "_blank")
+
+  // Limpa os campos do formulário após o envio
+  document.getElementById("eventName").value = ""
+  document.getElementById("eventAddress").value = ""
+  document.getElementById("contactPhone").value = ""
+  document.getElementById("contactEmail").value = ""
+  document.getElementById("eventDescription").value = ""
 }
